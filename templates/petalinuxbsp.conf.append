@@ -8,6 +8,9 @@ KERNEL_IMAGETYPE = "fitImage"
 PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
 PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
 
+# Mender requires go 1.12 but Petalinux 2019.1 sets GOVERSION to 1.11
+GOVERSION="1.12%"
+
 # Set up tools to create boot.bin
 BIF_PARTITION_ATTR = "fsbl u-boot"
 BOOTBIN_BASE_NAME = "BOOT"
