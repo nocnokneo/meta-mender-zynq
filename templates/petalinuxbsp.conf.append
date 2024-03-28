@@ -1,15 +1,9 @@
 # Add EXTRA_IMAGEDEPENDS default components
-EXTRA_IMAGEDEPENDS_append_zynq = " xilinx-bootbin"
+EXTRA_IMAGEDEPENDS:append:zynq = " xilinx-bootbin"
 
-IMAGE_FSTYPES_remove = "ext3 ext3.bz2 cpio cpio.gz cpio.bz2 cpio.gz.u-boot tar.bz2 jffs2 ext4.gz"
+IMAGE_FSTYPES:remove = "ext3 ext3.bz2 cpio cpio.gz cpio.bz2 cpio.gz.u-boot tar.bz2 jffs2 ext4.gz"
 
 KERNEL_IMAGETYPE = "fitImage"
-
-PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
-PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils"
-
-# Mender requires go 1.12 but Petalinux 2019.1 sets GOVERSION to 1.11
-GOVERSION="1.12%"
 
 # Set up tools to create boot.bin
 BIF_PARTITION_ATTR = "fsbl u-boot"
@@ -25,7 +19,7 @@ MENDER_STORAGE_DEVICE = "/dev/mmcblk0"
 #MENDER_STORAGE_TOTAL_SIZE_MB = "30436"
 MENDER_STORAGE_TOTAL_SIZE_MB = "10240"
 
-MENDER_FEATURES_ENABLE_append = " mender-image mender-uboot mender-image-sd"
-MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi mender-systemd"
+MENDER_FEATURES_ENABLE:append = " mender-uboot mender-image-sd"
+MENDER_FEATURES_DISABLE:append = " mender-grub mender-image-uefi"
 
 MENDER_ARTIFACT_NAME="<insertname>"
